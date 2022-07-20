@@ -1,0 +1,66 @@
+body {
+    background-color: var(--bg-color);
+    min-height: 100vh;
+    display: flex;
+}
+
+.section {
+    padding: 1rem 1.5rem;
+    max-width: 750px;
+    margin: auto;
+}
+
+.box{
+    background: var(--box-color);
+    padding: 2em;
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+.logo img {
+    width: 50%;
+}
+
+.is-sparta {
+    color: var(--text-color) !important;
+}
+
+.button.is-sparta {
+    background-color: var(--button-color);
+    border-color: transparent;
+    color: #fff !important;
+}
+
+.button.is-sparta.is-outlined {
+    background-color: transparent;
+    border-color: var(--button-color);
+    color: var(--text-color) !important;
+}
+
+hr{
+    background-color: var(--bg-color);
+    height: 1px;
+}
+
+.help {
+    color: var(--text-color2);
+}
+#help-password.help{
+    margin-bottom: 0.1em;
+}
+
+.mb-3 {
+    color: var(--text-color1);
+}
+
+.user-category {
+    display: flex;
+    justify-content: space-between;
+}
+
+.select:not(.is-multiple), .select select:not([multiple]) {
+    width: 100%;
+    margin-bottom: 20px;
+}

@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Webpage Title -->
+  <title>Home | Nextgame</title>
+
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bulma CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+  <!-- Font Awesome CSS -->
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/common.css') }}">
+  <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/index.css') }}">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+  <!-- JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+
+  
+  <!-- swiper -->
+  <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+  {% include 'head.html' %}
+  <script defer src="../static/js/index.js"></script>
+  <script>
+    $(document).ready(function () {
+        intro()
+        get_info();
+    });
+    function intro(){
+        alert('안녕하세요! a반 7조 고호성, 김예림, 심채운 입니다')
+    }
+    function buy (){
+          alert('구매 완료!')
+        }
+
+    function get_info(){
+      $.ajax({
+          type: 'GET',
+          url: '/game_info',
+          data: {},
+          success: function (response) {
+            let rows = response['game_info']
+              for (let i = 0 ; i < rows.length; i++){
+                console.log(rows[i]['gamecategory'])
+                if(rows[i]['gamecategory'] == 'promotion'){
+                let title = rows[i]['title']
+                let img_url = rows[i]['img_url']
+                let banner_url = rows[i]['banner_url']
+                let price = rows[i]['price']
+
+                let temp_html = `<li class="item">
+                                    <div class="img">
+                                      <div class="img-box item1" style="background: url(${img_url}) no-repeat center / cover;"><a href="/detail?${title}"></a></div>
+                                    </div>
+                                    <div class="title-box">
+                                      <div class="title">
+                                        <span><a href="/detail?${title}">${title}</a></span>
+                                      </div>
+                                      <div class="bottom-group">
+                                        <div class="price">
+                                          <span>￦ ${price}</span>
+                                          <div class="buy">
+                                            <p onclick="buy()">구매하기</p>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </li>
+              `
+              let temp_banner = `<div class="swiper-slide">
+                                    <a href="#"><img src="${banner_url}" alt=""></a>
+                                 </div>
+              `
+              $('#item-promotion').append(temp_html)
+              $('#game-banner-pro').append(temp_banner)
+            }else{
+                let title = rows[i]['title']
+                let img_url = rows[i]['img_url']
+                let banner_url = rows[i]['banner_url']
+                let price = rows[i]['price']
+                let temp_html = `<li class="item">
+                                    <div class="img">
+                                      <div class="img-box item1" style="background: url(${img_url}) no-repeat center / cover;"><a href="/detail?${title}"></a></div>
+                                    </div>
+                                    <div class="title-box">
+                                      <div class="title">
+                                        <span><a href="/detail?${title}">${title}</a></span>
+                                      </div>
+                                      <div class="bottom-group">
+                                        <div class="price">
+                                          <span>￦ ${price}</span>
+                                          <div class="buy">
+                                            <p onclick="buy()">구매하기</p>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </li>`
+                let temp_banner = `<div class="swiper-slide">
+                                      <a href="#"><img src="${banner_url}" alt=""></a>
+                                  </div>
+                `
+
+              $('#item-hot').append(temp_html)
+              $('#game-banner-hot').append(temp_banner)
+              }
+            }
+        }
+      });
+    }
+
+  </script>
+
+</head>
+
+<body>
+  <header>{% include 'header.html' %}</header>
+  <main class="main">
+    <div class="inner item-promotion">
+      <div id="test"></div>
+      <h1>특별세일</h1>
+      <ul id="item-promotion">
+      </ul>
+    </div>
+
+    <div class="promotion">
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper" id ="game-banner-pro">
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <!--        <div class="swiper-pagination"></div>-->
+      </div>
+    </div>
+
+    <div class="inner item-hot">
+        <h1>이 달의 인기게임</h1>
+      <ul id="item-hot">
+      </ul>
+    </div>
+    <div class="promotion">
+      <div class="swiper mySwiper2">
+        <div class="swiper-wrapper" id ="game-banner-hot">
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <!--        <div class="swiper-pagination"></div>-->
+      </div>
+    </div>
+
+
+  </main>
+
+</body>
+</html>

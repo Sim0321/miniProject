@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+    <!-- Webpage Title -->
+    <title>Home | Nextgame</title>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bulma CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <!-- Font Awesome CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/common.css') }}">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/product.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+
+    <!-- JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+    <script>
+        $(document).ready(function () {
+            alert('잘 접속했어요')
+/*             show_post(); */
+        });
+
+
+        /* 포스트 저장 데이터 보내기 */
+        function savePost() {
+            let game_category = $('#post-category').val()
+            let title = $('#post-title').val()
+            let img_url = $('#post-img').val()
+            let banner_url = $('#banner-img').val()
+            let youtube = $('#game-video').val()
+            let disc = $('#post-disc').val()
+            let price = $('#post-price').val()
+
+            console.log(game_category, title, img_url, banner_url, youtube, disc, price)
+
+            $.ajax({
+                type: 'POST',
+                url: '/product/save',
+                data: {
+                    game_category_give: game_category,
+                    title_give: title,
+                    img_url_give: img_url,
+                    banner_url_give: banner_url,
+                    youtube_give: youtube,
+                    disc_give: disc,
+                    price_give: price,
+                },
+                success: function (response) {
+                    alert(response['msg'])
+                    window.location.reload()
+                }
+            });
+        }
+
+
+    </script>
+    {% include 'head.html' %}
+</head>
+<body>
+<header>{% include 'header.html' %}</header>
+<div class="save-page" id="modal-post">
+    <div class="modal__overlay"></div>
+    <div class="modal__content">
+        <div class="save-page__post">
+            <!-- form title  -->
+            <p class="title">제품 등록하기</p>
+            <div class="save-page__post--form">
+                <!-- select // 카테고리 선택 -->
+                <div class="select is-primary form-ctrl">
+                    <select id="post-category" class="form-ctrl">
+                        <option selected>카테고리를 선택하세요.</option>
+                        <option value="promotion">특별세일</option>
+                        <option value="hot">이 달의 인기게임</option>
+                    </select>
+                </div>
+                <!-- input // 제목 -->
+                <div>
+                    <input id="post-title" class="input is-primary form-ctrl" type="text" placeholder="게임 타이틀">
+                </div>
+                <!-- input // 게임 이미지 -->
+                <div>
+                    <input id="post-img" class="input is-primary form-ctrl" type="text" placeholder="게임 이미지 url">
+                </div>
+                <!-- input // 게임 배너 이미지 -->
+                <div>
+                    <input id="banner-img" class="input is-primary form-ctrl" type="text" placeholder="게임 배너 url">
+                </div>
+                <!-- input // 게임 영상 링크 -->
+                <div>
+                    <input id="game-video" class="input is-primary form-ctrl" type="text" placeholder="게임 영상 링크">
+                </div>
+                <!-- input // 게임 설명-->
+                <div>
+                    <input id="post-disc" class="input is-primary form-ctrl" type="text" placeholder="게임을 설명해주세요">
+                </div>
+                <!-- input // 가격 작성 -->
+                <div>
+                    <input id="post-price" class="input is-primary form-ctrl" type="text"
+                           oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                           required placeholder="가격을 입력하세요.">
+                </div>
+            </div>
+
+            <!-- 버튼 뭉치 : 저장하기 + 취소하기 -->
+            <div class="save-page__btn">
+                <!-- 저장하기 버튼 -->
+                <button class="button is-link save-page__btn--save" onclick="savePost()">등록</button>
+                <!-- 취소하기 버튼 -->
+                <button class="button is-danger save-page__btn--cancel" onclick="history.back()">취소</button>
+            </div>
+        </div>
+        <!-- 모달 창 : 포스트 작성 양식 코드 마무리 -->
+    </div>
+</div>
+<section class="content"></section>
+</body>
+</html>

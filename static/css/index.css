@@ -1,0 +1,223 @@
+.main {
+    width: 100%;
+    /*height: 800px;*/
+    padding-bottom: 40px;
+}
+
+.main > .inner {
+    padding-top: 20px;
+    height: auto;
+}
+
+.main > .inner > h1 {
+    margin: 30px 0;
+    font-size: 3em;
+    font-family: 'SUIT-Bold';
+    color: #fff;
+}
+
+.main > .inner > ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.main > .inner > ul > .item {
+    width: calc((100% - 40px) / 2);
+    height: 600px;
+    background-color: var(--box-color);
+    box-sizing: border-box;
+    margin-bottom: 50px;
+    overflow: hidden;
+    border-radius: 25px;
+}
+
+.img {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.img-box {
+    width: 100%;
+    height: 400px;
+    margin-bottom: 20px;
+    transition: .5s;
+}
+
+.img-box:hover {
+    transform: scale(1.15);
+}
+
+.img-box > a {
+    width: 100%;
+    height: 400px;
+    display: block;
+
+}
+
+.item1 {
+    background: url("https://portforward.com/tom-clancys-the-division-2/tom-clancys-the-division-2-header-small.webp") no-repeat center / cover;
+}
+
+.item2 {
+    background: url("https://post-phinf.pstatic.net/MjAyMDAzMDNfNjAg/MDAxNTgzMjM3OTU1Njg5.FG8NCRfCjBYUpCf38hxnMkYUx6_mD-bxqjVawPZidTog.T3O8C5UWBASKyFclGjVGnsYRYKaLqvimEFQ9oYwiaJcg.JPEG/header_%281%29%28UpPhoto%29%28noise_scale%29%28Level1%29%28tta%29%28x8.000000%29_%EB%B3%B5%EC%82%AC.jpg?type=w1200") no-repeat center / cover;
+}
+
+.item3 {
+    background: url("https://post-phinf.pstatic.net/MjAxOTAzMjlfMjcx/MDAxNTUzNzg3NDQwNTQ1.ThphOVhCNlZn6M4b_OVlEw8SzoS1TnsawcCCVE48uesg.D2qkWooi8_dwkdWL8y9Wif7slllowWiWiZjmJCIE4V8g.JPEG/20180921183923_1517.jpg?type=w1200") no-repeat center / cover;
+}
+
+.item4 {
+    background: url("https://coolhdwall.com/storage1/202107/call-of-duty-modern-warfare-soldiers-4K-wallpaper-pc-preview-64.jpg") no-repeat center / cover;
+}
+
+.item5 {
+    background: url("https://img.seoul.co.kr/img/upload/2022/01/12/SSI_20220112152324.jpg") no-repeat center / cover;
+}
+
+.item6 {
+    background: url("https://www.monsterhunter.com/world-iceborne/pc/assets/img/common/news/thum/img_tu08.jpg") no-repeat center / cover;
+}
+
+.item7 {
+    background: url("https://post-phinf.pstatic.net/MjAxODEwMTBfMjMw/MDAxNTM5MTU2OTgzMjkw.Mcprdhb_ep1ro3AWF6Miz_amIA8aUldgSTwvgf37ii0g.h7MxPYKXxu72ExyBBgt5ibFKEXVBxTyddh6wmnQjTgYg.JPEG/71696_screenhi_930x524_en_US_04__2014-11-05-12-00-11_98f7a55bc17b8ba5a60d6dfeaff00a537727b397.jpg?type=w1200") no-repeat center / cover;
+}
+
+.item8 {
+    background: url("https://post-phinf.pstatic.net/MjAxODAxMjhfMjkw/MDAxNTE3MDc1NDI0MjU4.b9JchnvrDpGm3zVzGeYOZIwE7eQh4TyhItqXTrMnlPUg.1YDl-tCq-C0xDUh03CiTj4dgV5sAEsAgk5ViIDJDsOsg.JPEG/rainbow_six_siege_year_3_pass_4k_8k-HD.jpg?type=w1200") no-repeat center / cover;
+}
+
+.title-box {
+
+}
+
+.title {
+    width: 100%;
+    height: 80px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: left;
+    text-align: center;
+    /*border: 1px solid #fff;*/
+    color: #ffffff;
+    line-height: 80px;
+
+    /* background-color: purple; */
+    margin-bottom: 15px;
+}
+
+.title > span > a {
+    font-family: 'SUIT-Bold';
+    font-size: 1.4em;
+    color: #fff;
+    transition: all .3s;
+}
+
+.title > span > a:hover {
+    text-decoration: underline;
+    color: #808183;
+}
+
+.bottom-group {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.bottom-group > .rank {
+    width: 30%;
+    /*border: 1px solid;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+
+    /*border: 1px solid #fff;*/
+}
+
+.bottom-group > .price {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    color: #fff;
+    font-size: 1.4em;
+}
+
+.buy {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+margin-left: 30px;
+}
+
+.buy > p {
+width: 100%;
+padding: 10px 20px;
+display: flex;
+justify-content: center;
+align-items: center;
+border-radius: 15px;
+color: #fff;
+font-weight: bold;
+transition: .5s;
+background-color: var(--button-color);
+cursor: pointer;
+}
+.buy > a:hover{
+color: #000;
+background-color: #fff;
+}
+
+.num {
+font-size: 18px;
+font-weight: bold;
+}
+
+.bottom-group > .buy > span {
+font-size: 18px;
+font-weight: bold;
+}
+
+/*swiper*/
+.promotion {
+    width: 100%;
+    height: 700px;
+    margin: 40px 0;
+}
+
+.swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

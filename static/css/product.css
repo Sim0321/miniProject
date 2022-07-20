@@ -1,0 +1,50 @@
+
+body{
+    height: 100vh;
+}
+.save-page {
+    width: 700px;
+    margin: 0 auto;
+    margin-top: 100px;
+}
+
+.save-page .title {
+    font-size: s2em;
+    font-family: 'SUIT-Bold';
+    color: #fff;
+}
+
+.is-primary.input, .is-primary.textarea {
+    margin-bottom: 10px;
+    border: none;
+}
+
+.file-cta {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.select.is-primary select.is-hovered, .select.is-primary select:hover {
+    border: none;
+}
+
+.select {
+    margin-bottom: 10px;
+    width: 100%;
+}
+.select select {
+    width: 100%;
+}
+.button.is-link, .button {
+    background-color: var(--text-color2);
+    color: var(--box-color);
+    transition: all .3s;
+}
+
+.button.is-link.is-hovered, .button.is-link:hover{
+    background-color: var(--button-color);
+}
+.button.is-danger {
+    background-color: var(--box-color);  
+    margin-left: 10px;
+}

@@ -1,0 +1,13 @@
+<section class="header">
+    <div class="inner">
+        <div class="header-logo">
+            <a href="/"><img src="{{ url_for('static', filename='logo.png') }}"></a>
+        </div>
+        <div class="menu">
+            <span style="margin-right:10px;" id="nickname">{{user_info.nickname}}님 안녕하세요.</span>
+            <span id="category" class="category" style="margin-right:10px;">{{user_category}}</span>
+            <button id="seller-btn" class="seller-button" onclick="window.location.href='/product'">상품 등록</button>
+            <button class="logout-button" onclick="sign_out()">로그아웃</button>
+        </div>
+    </div>
+</section>

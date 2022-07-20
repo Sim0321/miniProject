@@ -1,0 +1,15 @@
+<script>
+    /* 페이지가 로딩 됐을 때 회원의 유형을 받아옵니다. 판매자인지, 게스트인지. */
+    window.onload = function () { 
+            let category = document.getElementById('category').innerHTML
+            /* 판매자일 경우 상품 등록 버튼 표시 */
+            if(category == 'seller'){
+                document.getElementById('seller-btn').style.display = 'inline-block'
+            }
+        }
+    function sign_out() {
+            $.removeCookie('mytoken', {path: '/'});
+            alert('로그아웃!')
+            window.location.href = "/login"
+        }
+</script>
