@@ -22,8 +22,7 @@ SECRET_KEY = 'SPARTA'
 
 from pymongo import MongoClient
 
-client = MongoClient('mongodb+srv://test:sparta@cluster0.msszki5.mongodb.net/Cluster0?retryWrites=true&w=majority',
-                     27017)
+client = MongoClient(???)
 db = client.game
 
 
